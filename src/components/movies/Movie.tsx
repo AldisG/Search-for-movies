@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import MovieGenre from '../../components/MovieGenre'
+import MovieGenre from '../MovieGenre'
 import { Link } from 'react-router-dom'
 import './movie.scss'
 
@@ -13,15 +13,16 @@ type Props = {
   genres: string[]
 }
 const Movie: FC<Props> = ({
-  id, title, imgLink: { medium }, genres
+  id, title, imgLink, genres
 }) => {
   return (
     <div className="wrapper">
       <div className="movie-item">
-
-        <Link className="movie-item-link-image" to={`/movie/${id}`}>
-          <img className="movie-image" src={medium} alt={medium} />
-        </Link>
+        {imgLink && (
+          <Link className="movie-item-link-image" to={`/movie/${id}`}>
+            <img className="movie-image" src={imgLink?.medium} alt={imgLink?.medium} />
+          </Link>
+        )}
 
         <h5 className="movie-title">{title}</h5>
 

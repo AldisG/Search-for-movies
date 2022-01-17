@@ -1,12 +1,16 @@
 import { FormEvent, useState } from "react"
+import { useAppDispatch } from "../../redux/hooks"
+import { searchInput } from "../../slices/searchMovieSlice"
 import SearchIcon from "./SearchIcon"
 import './searchMovies.scss'
 
 const SearchMovies = () => {
-  const [searchInput, setSearchInput] = useState('')
+  const dispatch = useAppDispatch()
+  const [userInput, setUserInput] = useState('')
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('Attempt to search for a movie', searchInput.trim())
+    dispatch(searchInput(userInput.trim()))
   }
   return (
     <form
@@ -14,11 +18,13 @@ const SearchMovies = () => {
       onSubmit={(e) => handleSubmit(e)}
     >
       <input
-        value={searchInput}
-        onChange={(e) => setSearchInput(e.target.value)}
+        value={userInput}
+        onChange={(e) => setUserInput(e.target.value)}
         className="search-input"
         type="text"
-        placeholder="Search for a movie" />
+        placeholder="Search for a movie"
+      />
+
       <button className="search-button">
         <SearchIcon />
       </button>

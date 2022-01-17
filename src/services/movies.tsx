@@ -16,12 +16,12 @@ export const moviesAPI = createApi({
     getAnyMoviesList: builder.query({
       query: (pageOfInterest: string) => `shows?page=${pageOfInterest}`
     }),
-    test: builder.query({
-      query: (value: string) => 'shows?page=' + value
+    fillerImage: builder.query({
+      query: () => 'shows/1/images'
     }),
   })
 })
 
 export const { reducer } = moviesAPI
-export const { useGetMovieListQuery, useGetAnyMoviesListQuery, useTestQuery } = moviesAPI
+export const { useGetMovieListQuery, useGetAnyMoviesListQuery, useFillerImageQuery } = moviesAPI
 export default moviesAPI

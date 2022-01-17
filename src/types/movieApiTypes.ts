@@ -25,4 +25,20 @@ export type MovieListType = {
   summary: string,
   // _links: string
 }
+
+export type SearchMovieList = {
+  score: number,
+  show: MovieListType
+}
+export type FillerImage = {
+  resolutions: {
+    medium: {
+      url: string
+    },
+    original: {
+      url: string
+    }
+  }
+}
+
 export { }

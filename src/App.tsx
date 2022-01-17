@@ -1,16 +1,16 @@
 import { Routes, Route } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { useAppDispatch } from './redux/hooks';
+// import { useEffect, useState } from 'react';
+// import { useAppDispatch } from './redux/hooks';
 // import { searchList } from './slices/searchMovieSlice';
 // import moviesAPI, { useGetAnyMoviesListQuery } from './services/movies';
-import MovieList from './pages/movies/MovieList';
+import MovieList from './components/movies/MovieList';
 // import Movie from './pages/movies/Movie';
 import PageNotFound from './pages/PageNotFound';
-import Header from './components/Header';
+import Header from './components/header/Header';
 import './App.scss';
 
 const App = () => {
-  const [totaleMovieListPageNumber, settotaleMovieListPageNumber] = useState(0)
+  // const [totaleMovieListPageNumber, settotaleMovieListPageNumber] = useState(0)
 
   // const dispatch = useAppDispatch()
   // const {

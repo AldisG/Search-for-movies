@@ -1,4 +1,4 @@
-@import '../App.scss';
+@import '../../App.scss';
 
 .header-container,
 .header-texts{
@@ -10,10 +10,11 @@
   width: 100%;
   position: relative;
   z-index: 2;
-  height: 500px;
-  padding-top: 40px;
+  min-height: 400px;
+  padding: 40px 10px;
   gap: 40px;
   background-color: $black;
+  overflow: hidden;
 }
 .welcome-title,
 .welcome-message{

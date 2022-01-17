@@ -1,19 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { MovieListType } from '../types/movieApiTypes'
+import { SearchMovieList } from '../types/movieApiTypes'
 
 const initialState = {
-  movieList: [] as MovieListType[],
+  movieList: [] as SearchMovieList[],
+  searchInput: ''
 };
 
 const moviesSlice = createSlice({
   name: 'moviesList',
   initialState,
   reducers: {
-    searchList: (state, action) => {
+    searchResults: (state, action) => {
       state.movieList = action.payload
+    },
+    searchInput: (state, action) => {
+      state.searchInput = action.payload
     }
   },
 });
 
-export const { searchList } = moviesSlice.actions
+export const { searchResults, searchInput } = moviesSlice.actions
 export default moviesSlice.reducer;

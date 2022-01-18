@@ -14,3 +14,10 @@
   gap: 20px;
   width: 100%;
 }
+.list-show{
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+}

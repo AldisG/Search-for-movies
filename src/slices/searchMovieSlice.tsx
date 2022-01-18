@@ -3,7 +3,8 @@ import { SearchMovieList } from '../types/movieApiTypes'
 
 const initialState = {
   movieList: [] as SearchMovieList[],
-  searchInput: ''
+  searchInput: '',
+  showGrid: true
 };
 
 const moviesSlice = createSlice({
@@ -15,9 +16,12 @@ const moviesSlice = createSlice({
     },
     searchInput: (state, action) => {
       state.searchInput = action.payload
+    },
+    chooseGridOrListOfSearches: (state) => {
+      state.showGrid = !state.showGrid
     }
   },
 });
 
-export const { searchResults, searchInput } = moviesSlice.actions
+export const { searchResults, searchInput, chooseGridOrListOfSearches } = moviesSlice.actions
 export default moviesSlice.reducer;

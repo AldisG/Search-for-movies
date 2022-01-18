@@ -4,13 +4,15 @@ import Movie from "./Movie";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { useGetMovieListQuery } from '../../services/movies';
 import { searchResults } from '../../slices/searchMovieSlice';
-import ErrorWhileLoading from "../ErrorWhileLoading";
-import ContentIsLoading from "../ContentIsLoading";
+import ErrorWhileLoading from "../errors/ErrorWhileLoading";
+import ContentIsLoading from "../loading/ContentIsLoading";
+import DisplayInformation from "../tools/DisplayInformation";
 
 const Home = () => {
   const movieListAvailable = useAppSelector(({ searchedMovies }) => searchedMovies.movieList)
-  const dispatch = useAppDispatch() // search form
   const searchInput = useAppSelector(({ searchedMovies }) => searchedMovies.searchInput)
+  const showGrid = useAppSelector(({ searchedMovies }) => searchedMovies.showGrid)
+  const dispatch = useAppDispatch() // search form
   const {
     data, error, isLoading, isError,
   } = useGetMovieListQuery(searchInput);
@@ -35,9 +37,10 @@ const Home = () => {
 
   return (
     <div className="movie-section">
-      <div className="movies-container">
+      <DisplayInformation />
+      <div className={`movies-container ${!showGrid && 'list-show'}`}>
         {movieListAvailable.length > 0 && movieListAvailable.map(({ score, show: {
-          id, name, image, genres
+          id, name, image, genres, summary
         } }) => (
           <Movie
             key={id}
@@ -45,6 +48,7 @@ const Home = () => {
             title={name}
             imgLink={image}
             genres={genres}
+            summary={summary}
           />
         ))}
       </div>

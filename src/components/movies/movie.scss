@@ -1,21 +1,39 @@
+@import '../../App.scss';
+
 .movie-item{
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 20px;
-  background-color: #ddd;
+  background-color: $whiteTransparent;
   border-radius: 8px;
   overflow: hidden;
+  width: 100%;
 }
-.movie-title,
+.movie-item.list{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+  justify-content: flex-start;
+}
+
+.information-container{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .movie-item-link-image,
 .movie-genre{
   user-select: none;
 }
+
 .movie-title{
   font-weight: bold;
   font-size: 1.6rem;
   padding: 0 0 10px 0;
+}
+.movie-summary{
+  color: darken($white, 20);
 }
 .movie-image{
   width: 100%;
@@ -23,15 +41,20 @@
   user-select: none;
   pointer-events: none;
 }
+.movie-image.list{
+  width: 100px;
+}
+
 .movie-genres{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   font-size: .7rem;
+  align-items: flex-end;
 }
 .movie-genre{
   display: block;
-  background-color: #fff;
+  background-color: $lightGrey;
   padding: 4px 6px;
   border-radius: 4px;
 }

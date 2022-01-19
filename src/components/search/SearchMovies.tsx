@@ -1,7 +1,8 @@
 import { FormEvent, useState } from "react"
-import { useAppDispatch } from "../../redux/hooks"
-import { searchInput } from "../../slices/searchMovieSlice"
-import SearchIcon from "./SearchIcon"
+import { useAppDispatch } from "../../store/redux/hooks"
+import { searchInput } from "../../store/slices/searchMovieSlice"
+import SearchIcon from "../icons/SearchIcon"
+import NavigateBtn from "../tools/buttons/NavigateBtn"
 import './searchMovies.scss'
 
 const SearchMovies = () => {
@@ -17,6 +18,7 @@ const SearchMovies = () => {
       className="search-movies-container"
       onSubmit={(e) => handleSubmit(e)}
     >
+
       <input
         value={userInput}
         onChange={(e) => setUserInput(e.target.value)}
@@ -24,10 +26,9 @@ const SearchMovies = () => {
         type="text"
         placeholder="Search for a movie"
       />
-
-      <button className="search-button">
+      <NavigateBtn>
         <SearchIcon />
-      </button>
+      </NavigateBtn>
     </form>
   )
 }

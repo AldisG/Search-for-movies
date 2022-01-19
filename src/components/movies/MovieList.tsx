@@ -1,12 +1,13 @@
 import { useEffect } from "react";
-import './moviesList.scss'
-import Movie from "./Movie";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks";
-import { useGetMovieListQuery } from '../../services/movies';
-import { searchResults } from '../../slices/searchMovieSlice';
+import { useAppSelector, useAppDispatch } from "../../store/redux/hooks";
+import { useGetMovieListQuery } from '../../store/services/movies';
+import { searchResults } from '../../store/slices/searchMovieSlice';
 import ErrorWhileLoading from "../errors/ErrorWhileLoading";
 import ContentIsLoading from "../loading/ContentIsLoading";
 import DisplayInformation from "../tools/DisplayInformation";
+import Header from "../header/Header";
+import Movie from "./Movie";
+import './moviesList.scss'
 
 const Home = () => {
   const movieListAvailable = useAppSelector(({ searchedMovies }) => searchedMovies.movieList)
@@ -37,20 +38,24 @@ const Home = () => {
 
   return (
     <div className="movie-section">
-      <DisplayInformation />
+      <Header />
+
+      {movieListAvailable.length > 0 && <DisplayInformation />}
       <div className={`movies-container ${!showGrid && 'list-show'}`}>
-        {movieListAvailable.length > 0 && movieListAvailable.map(({ score, show: {
+        {movieListAvailable.map(({ show: {
           id, name, image, genres, summary
-        } }) => (
-          <Movie
-            key={id}
-            id={id}
-            title={name}
-            imgLink={image}
-            genres={genres}
-            summary={summary}
-          />
-        ))}
+        } }) => {
+          return (
+            <Movie
+              key={id}
+              id={id}
+              title={name}
+              imgLink={image}
+              genres={genres}
+              summary={summary}
+            />
+          )
+        })}
       </div>
     </div>
   )

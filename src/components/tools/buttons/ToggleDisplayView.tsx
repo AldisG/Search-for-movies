@@ -1,5 +1,8 @@
-import { useAppSelector, useAppDispatch } from "../../../redux/hooks";
-import { chooseGridOrListOfSearches } from '../../../slices/searchMovieSlice';
+import { useAppSelector, useAppDispatch } from "../../../store/redux/hooks";
+import { chooseGridOrListOfSearches } from '../../../store/slices/searchMovieSlice';
+
+import GridIcon from "../../icons/GridIcon";
+import ListIcon from "../../icons/ListIcon";
 
 const ToggleDisplayView = () => {
   const dispatch = useAppDispatch()
@@ -11,8 +14,8 @@ const ToggleDisplayView = () => {
   return (
     <button
       onClick={() => handleToggle()}
-      className='search-button toggle-search-result-style'>
-      {showGrid ? 'Grid' : 'List'}
+      className='toggle-search-result-style'>
+      {showGrid ? <GridIcon /> : <ListIcon />}
     </button>
   )
 }

@@ -1,17 +1,18 @@
-.display-information-container{
+@import '../../App.scss';
+
+.display-information-container,
+.display-information-span,
+.toggle-search-result-style{
   display: flex;
+}
+.display-information-container{
   justify-content: space-around;
+  align-items: center;
+  padding-top: 4px;
   padding-bottom: 10px;
   width: 100%;
   color: #fff;
 }
 .display-information-span{
-  display: flex;
   gap: 10px;
-}
-.search-button.toggle-search-result-style{
-  padding: 5px 10px;
-  border-radius: 24px;
-  width: min-content;
-  height: min-content;
 }

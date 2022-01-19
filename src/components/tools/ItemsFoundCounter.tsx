@@ -1,9 +1,7 @@
-import { useAppSelector, useAppDispatch } from "../../redux/hooks";
-import { chooseGridOrListOfSearches } from '../../slices/searchMovieSlice';
+import { useAppSelector } from "../../store/redux/hooks";
 
 const ItemsFoundCounter = () => {
 
-  const dispatch = useAppDispatch()
   const amountOfMoviesFound = useAppSelector(({ searchedMovies }) => searchedMovies.movieList.length)
 
   return (

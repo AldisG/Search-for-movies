@@ -9,6 +9,10 @@
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
+  transition: background-color .2s;
+  &:hover {
+    background-color: $whiteTransparentBrighter;
+  }
 }
 .movie-item.list{
   display: grid;
@@ -55,6 +59,7 @@
 .movie-genre{
   display: block;
   background-color: $lightGrey;
+  color: $blackText;
   padding: 4px 6px;
   border-radius: 4px;
 }

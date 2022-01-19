@@ -4,8 +4,10 @@ $blackText: #333;
 $black: #1a1a1b;
 $white: #fff;
 $whiteTransparent: #ffffff11;
+$whiteTransparentBrighter: #ffffff44;
 $lightGrey: #ccc;
 $accentColor: #4064c7;
+$red: #c74052;
 
 *, a{
   padding: 0;
@@ -14,7 +16,9 @@ $accentColor: #4064c7;
   text-decoration: none;
   font-family: 'Roboto Condensed', sans-serif;
 }
-
+button{
+  user-select: none;
+}
 .App {
   display: flex;
   flex-direction: column;

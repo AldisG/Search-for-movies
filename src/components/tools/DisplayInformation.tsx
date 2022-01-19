@@ -1,6 +1,7 @@
 import './displayInformation.scss'
 import ToggleDisplayView from "./buttons/ToggleDisplayView";
 import ItemsFoundCounter from "./ItemsFoundCounter";
+import './buttons/buttons.scss'
 
 const DisplayInformation = () => {
   return (

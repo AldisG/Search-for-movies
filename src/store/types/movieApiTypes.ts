@@ -13,9 +13,7 @@ export type MovieListType = {
   premiered: string,
   ended: string,
   officialSite: string,
-  // schedule: string, 
   rating: string,
-  // network: object, 
   webChannel: string,
   dvdCountry: string,
   image: {
@@ -23,7 +21,6 @@ export type MovieListType = {
     original: string
   },
   summary: string,
-  // _links: string
 }
 
 export type SearchMovieList = {

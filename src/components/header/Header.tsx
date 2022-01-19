@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import HeaderBackgroundImg from './HeaderBackgroundImg'
 import SearchMovies from '../search/SearchMovies'
-import { useFillerImageQuery } from '../../services/movies'
-import { FillerImage } from '../../types/movieApiTypes'
-import '../../components/header/header.scss'
+import { useFillerImageQuery } from '../../store/services/movies'
+import { FillerImage } from '../../store/types/movieApiTypes'
+import './header.scss'
 
 const Header = () => {
   const [fillerImages, setFillerImages] = useState<FillerImage[]>()

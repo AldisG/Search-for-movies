@@ -8,7 +8,6 @@ export const moviesAPI = createApi({
     baseUrl: '/'
   }),
 
-  // Endpoints for different calls
   endpoints: (builder) => ({
     getMovieList: builder.query({
       query: (searchFor: string) => `search/shows?q=${searchFor}` as string

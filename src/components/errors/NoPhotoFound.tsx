@@ -3,7 +3,7 @@ const NoPhotoFound = () => {
     <div className="no-photo-found">
       <span>
         Sorry,<br />
-        No picture found!
+        No preview available...
       </span>
     </div>
   )

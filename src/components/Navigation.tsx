@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const NavigationStyled = styled.div`
   display: flex;
   gap: 20px;
-`;
+`
 
 const Navigation: FC = () => {
   return (

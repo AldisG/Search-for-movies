@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import HeaderBackgroundImg from '../HeaderBackgroundImg'
-import SearchMovies from '../search/SearchMovies'
-import { useFillerImageQuery } from '../../services/movies'
-import { FillerImage } from '../../types/movieApiTypes'
-import '../../components/header/header.scss'
+import HeaderBackgroundImg from './HeaderBackgroundImg'
+import SearchShow from '../search/SearchShow'
+import { useFillerImageQuery } from '../../store/services/show'
+import { FillerImage } from '../../store/types/showApiTypes'
+import './header.scss'
 
 const Header = () => {
   const [fillerImages, setFillerImages] = useState<FillerImage[]>()
@@ -19,10 +19,10 @@ const Header = () => {
     <div className='header-container'>
       <div className="header-texts">
         <h1 className="welcome-title">Welcome!</h1>
-        <span className="welcome-message">Search for cool movies!</span>
+        <span className="welcome-message">Search for cool shows!</span>
         {fillerImages && <HeaderBackgroundImg image={fillerImages[1].resolutions.original.url} />}
       </div>
-      <SearchMovies />
+      <SearchShow />
     </div>
   )
 }

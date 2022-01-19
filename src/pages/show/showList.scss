@@ -1,16 +1,24 @@
 @import '../../App.scss';
 
-.movie-section{
+.show-section{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   height: max-content;
 }
 
-.movies-container{
+.show-container{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+
+}
+.list-show{
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: 1fr;
   gap: 20px;
   width: 100%;
 }

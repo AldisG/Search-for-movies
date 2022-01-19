@@ -3,26 +3,38 @@
 $blackText: #333;
 $black: #1a1a1b;
 $white: #fff;
+$whiteTransparent: #ffffff11;
+$whiteTransparentBrighter: #ffffff44;
 $lightGrey: #ccc;
 $accentColor: #4064c7;
+$red: #c74052;
 
 *, a{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   text-decoration: none;
-  color: #333;
   font-family: 'Roboto Condensed', sans-serif;
+}
+
+button{
   user-select: none;
 }
 
-.navigation-link:hover {
-  text-decoration: underline;
-}
 .App {
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
   background-color: $black;
+  color: $white;
 }
+
+.navigation-link{
+  user-select: none;
+  color: $lightGrey;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+

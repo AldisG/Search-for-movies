@@ -1,0 +1,65 @@
+@import '../../App.scss';
+$maxSize: 400px;
+
+.light-grey-text{
+  color: $lightGrey;
+}
+
+.show-details-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.show-details-wrapper{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+  flex-wrap: wrap;
+  background-color: $whiteTransparent;
+  padding: 20px;
+  border-radius: 8px;
+  gap: 40px;
+  position: relative;
+  max-width: max-content;
+}
+
+.show-poster-large{
+  display: grid;
+  justify-content: center;
+  max-width: $maxSize;
+}
+
+.show-details{
+  display: grid;
+  gap: 10px;
+  min-width: 50px;
+}
+
+.show-header,
+.show-details{
+  color: $white;
+}
+
+.stars{
+  display: flex;
+  align-items: center;
+  line-height: 0;
+  padding: 10px 0;
+  gap: 10px;
+}
+
+.show-details{
+  font-size: 1.2rem;
+}
+
+.show-premier,
+.show-status{
+  font-size: 1rem;
+}
+
+.show-details-go-back-button{
+  justify-self: flex-end;
+  align-self: flex-end;
+}

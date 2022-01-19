@@ -10,12 +10,11 @@ const HeaderBackgroundImgStyled = styled.div`
   overflow: hidden;
   .header-background-image{
     filter: blur(5px);
-    min-height: 400px;
+    min-height: 300px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     width: 110%;
-    /* transform: translate(-5%, -5%); */
 
   -webkit-mask-image: 
     linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0)),

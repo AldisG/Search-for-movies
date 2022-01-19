@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
-import { moviesAPI } from '../services/movies';
-import searchMovieSlice from '../slices/searchMovieSlice';
+import { showAPI } from '../services/show';
+import searchShowlice from '../slices/searchShowSlice';
 
 const store = configureStore({
   reducer: {
-    [moviesAPI.reducerPath]: moviesAPI.reducer,
-    searchedMovies: searchMovieSlice,
+    [showAPI.reducerPath]: showAPI.reducer,
+    searchedShow: searchShowlice,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(moviesAPI.middleware)
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(showAPI.middleware)
 });
 setupListeners(store.dispatch)
 

@@ -1,0 +1,65 @@
+@import '../../App.scss';
+
+.show-item{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background-color: $whiteTransparent;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  transition: background-color .2s;
+  &:hover {
+    background-color: $whiteTransparentBrighter;
+  }
+}
+.show-item.list{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+  justify-content: flex-start;
+}
+
+.information-container{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.show-item-link-image,
+.show-genre{
+  user-select: none;
+}
+
+.show-title{
+  font-weight: bold;
+  font-size: 1.6rem;
+  padding: 0 0 10px 0;
+}
+.show-summary{
+  color: darken($white, 20);
+}
+.show-image{
+  width: 100%;
+  border-radius: 4px;
+  user-select: none;
+  pointer-events: none;
+}
+.show-image.list{
+  width: 100px;
+}
+
+.show-genres{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: .7rem;
+  align-items: flex-end;
+}
+.show-genre{
+  display: block;
+  background-color: $lightGrey;
+  color: $blackText;
+  padding: 4px 6px;
+  border-radius: 4px;
+}

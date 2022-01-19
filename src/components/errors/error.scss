@@ -1,0 +1,41 @@
+@import '../../App.scss';
+
+.error-while-fetching-data{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  padding: 0 20px;
+  width: 100%;
+  padding-top: 100px;
+  color: $white;
+  margin: 0 auto;
+  a{
+    color: $blackText;
+    background-color: $white;
+    padding: 8px 14px;
+    border-radius: 18px;
+    &:hover {
+      background-color: $accentColor;
+      color: $white;
+    }
+  }
+}
+.no-photo-found{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 200px;
+  background-color: darken($white, 55);
+  color: darken($white, 15);
+  border-radius: 8px;
+  & span{
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+  }
+}

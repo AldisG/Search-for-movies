@@ -1,4 +1,4 @@
-export type MovieListType = {
+export type ShowListType = {
   id: number,
   url: string,
   name: string,
@@ -13,9 +13,7 @@ export type MovieListType = {
   premiered: string,
   ended: string,
   officialSite: string,
-  // schedule: string, 
   rating: string,
-  // network: object, 
   webChannel: string,
   dvdCountry: string,
   image: {
@@ -23,13 +21,24 @@ export type MovieListType = {
     original: string
   },
   summary: string,
-  // _links: string
 }
 
-export type SearchMovieList = {
-  score: number,
-  show: MovieListType
+export type ShowProps = {
+  id: number,
+  title: string,
+  imgLink: {
+    medium: string,
+    original: string,
+  },
+  genres: string[],
+  summary: string
 }
+
+export type SearchShowList = {
+  score: number,
+  show: ShowListType
+}
+
 export type FillerImage = {
   resolutions: {
     medium: {

@@ -1,0 +1,18 @@
+@import '../../App.scss';
+
+.display-information-container,
+.display-information-span,
+.toggle-search-result-style{
+  display: flex;
+}
+.display-information-container{
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 4px;
+  padding-bottom: 10px;
+  width: 100%;
+  color: #fff;
+}
+.display-information-span{
+  gap: 10px;
+}

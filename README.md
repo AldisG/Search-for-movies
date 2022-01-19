@@ -2,15 +2,22 @@
 
 # Getting Started with Create React App
 ## File arrangement:
-* The entry point for all quiz related components is App.tsx
-* The Shows  - search, results, icons, utc - are separated into different components
+
+* The entry point for all Show's search page related routes, containing components, are App.tsx.
+* Shows  - search, results, icons, utc - are separated into different components in "components" folder.
 * Project could be improved with more time, adding more animations, some minor optimisations, etc.
-* "Store" folder contains all Redux (slices, store, custom hooks for TS) and Api calls
+* "Store" folder contains all Redux (slices, store, custom hooks for TS) and Api related files and functions.
 * Project contains 3 main pages - ShowList, ShowDetails and PageNotFound, that can be found in "pages" folder
 * Components folder contains every other JSX file (alongside necessary scss files), like error, header, loading, utc.
 * API base url is located in package.json file - in "propxy" property, in case there are CORS issues.
 * Endpoints for API can easily be adjusted, by adding new endpoint, in store->services->show file.
 * Project contains libraries and tools like ReduxToolkit, Route, useApi, StyledComponents, ReactSpring.
+
+* Use of the page is simple. 
+1) When page has loaded, type what ever name of a show you can think of or want to find.
+2) Press "enter" or click on search icon (button).
+3) You can press on Show's poster or "See more" link, to see more details about the show.
+4) By pressing "X" button or "Go back" you will close/exit the show details page and return to movie search page.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

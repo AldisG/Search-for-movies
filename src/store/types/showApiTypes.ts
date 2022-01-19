@@ -1,4 +1,4 @@
-export type MovieListType = {
+export type ShowListType = {
   id: number,
   url: string,
   name: string,
@@ -23,7 +23,7 @@ export type MovieListType = {
   summary: string,
 }
 
-export type MovieProps = {
+export type ShowProps = {
   id: number,
   title: string,
   imgLink: {
@@ -34,9 +34,9 @@ export type MovieProps = {
   summary: string
 }
 
-export type SearchMovieList = {
+export type SearchShowList = {
   score: number,
-  show: MovieListType
+  show: ShowListType
 }
 
 export type FillerImage = {

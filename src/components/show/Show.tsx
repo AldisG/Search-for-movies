@@ -1,20 +1,20 @@
 import { FC } from 'react'
 import { animated, useSpring } from 'react-spring'
-import MovieGenre from '../tools/MovieGenre'
+import ShowGenre from '../tools/ShowGenre'
 import { useAppSelector } from '../../store/redux/hooks'
 import { determineImageSize, shortenSummaryParagraph } from '../../functions/functions'
 import NoPhotoFound from '../errors/NoPhotoFound'
-import MoviePosterImage from '../MoviePosterImage'
-import LinkToMovie from './LinkToMovie'
-import { MovieProps } from '../../store/types/movieApiTypes'
-import './movie.scss'
+import ShowPosterImage from '../ShowPosterImage'
+import LinkToShow from './LinkToShow'
+import { ShowProps } from '../../store/types/showApiTypes'
+import './show.scss'
 
-const Movie: FC<MovieProps> = ({
+const Show: FC<ShowProps> = ({
   id, title, imgLink, genres, summary
 }) => {
-  const showGrid = useAppSelector(({ searchedMovies }) => searchedMovies.showGrid)
+  const showGrid = useAppSelector(({ searchedShow }) => searchedShow.showGrid)
 
-  const animatedMovie = useSpring({
+  const animatedShow = useSpring({
     from: { opacity: 0 },
     enter: { opacity: 0 },
     to: { opacity: 1 },
@@ -28,43 +28,43 @@ const Movie: FC<MovieProps> = ({
   }
 
   return (
-    <animated.div className="wrapper" style={animatedMovie}>
-      <div className={`movie-item ${!showGrid && 'list'}`}>
+    <animated.div className="wrapper" style={animatedShow}>
+      <div className={`show-item ${!showGrid && 'list'}`}>
 
         {imgLink && (
-          <LinkToMovie
+          <LinkToShow
             linkId={id}
             classNameProp="navigation-link"
             text=""
           >
-            <MoviePosterImage
+            <ShowPosterImage
               showList={!showGrid}
               imageSize={handleDetermineImageSize(!showGrid)}
             />
-          </LinkToMovie>
+          </LinkToShow>
         )}
 
         {!imgLink && (
-          <LinkToMovie
+          <LinkToShow
             linkId={id}
-            classNameProp="movie-item-link-image"
+            classNameProp="show-item-link-image"
             text=""
           >
             <NoPhotoFound />
-          </LinkToMovie>
+          </LinkToShow>
         )}
 
         <div className="information-container">
-          <h5 className="movie-title">{title}</h5>
-          <span className="movie-summary">
+          <h5 className="show-title">{title}</h5>
+          <span className="show-summary">
             {shortenSummaryParagraph(summary, showGrid)}
           </span>
 
-          <LinkToMovie classNameProp="navigation-link" text="See more" linkId={id}>{''}</LinkToMovie>
+          <LinkToShow classNameProp="navigation-link" text="See more" linkId={id}>{''}</LinkToShow>
 
-          <div className="movie-genres">
+          <div className="show-genres">
             {genres.map((genre) => (
-              <MovieGenre key={genre} genre={genre} />
+              <ShowGenre key={genre} genre={genre} />
             ))}
           </div>
 
@@ -74,4 +74,4 @@ const Movie: FC<MovieProps> = ({
   )
 }
 
-export default Movie
+export default Show

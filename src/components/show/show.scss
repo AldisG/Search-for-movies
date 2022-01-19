@@ -1,6 +1,6 @@
 @import '../../App.scss';
 
-.movie-item{
+.show-item{
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -14,7 +14,7 @@
     background-color: $whiteTransparentBrighter;
   }
 }
-.movie-item.list{
+.show-item.list{
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto;
@@ -26,37 +26,37 @@
   flex-direction: column;
   gap: 10px;
 }
-.movie-item-link-image,
-.movie-genre{
+.show-item-link-image,
+.show-genre{
   user-select: none;
 }
 
-.movie-title{
+.show-title{
   font-weight: bold;
   font-size: 1.6rem;
   padding: 0 0 10px 0;
 }
-.movie-summary{
+.show-summary{
   color: darken($white, 20);
 }
-.movie-image{
+.show-image{
   width: 100%;
   border-radius: 4px;
   user-select: none;
   pointer-events: none;
 }
-.movie-image.list{
+.show-image.list{
   width: 100px;
 }
 
-.movie-genres{
+.show-genres{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   font-size: .7rem;
   align-items: flex-end;
 }
-.movie-genre{
+.show-genre{
   display: block;
   background-color: $lightGrey;
   color: $blackText;

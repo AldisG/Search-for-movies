@@ -5,14 +5,14 @@ type Props = {
   imageSize: string
 }
 
-const MoviePosterImage: FC<Props> = ({ showList, imageSize }) => {
+const ShowPosterImage: FC<Props> = ({ showList, imageSize }) => {
   return (
     <img
-      className={`movie-image ${showList && 'list'}`}
+      className={`show-image ${showList && 'list'}`}
       src={imageSize}
       alt={imageSize}
     />
   )
 }
 
-export default MoviePosterImage
+export default ShowPosterImage

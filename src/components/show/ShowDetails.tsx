@@ -2,28 +2,28 @@ import { FC, useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useAppSelector } from '../../store/redux/hooks'
 import '../tools/buttons/buttons.scss'
-import { SearchMovieList, MovieListType } from '../../store/types/movieApiTypes'
+import { SearchShowList, ShowListType } from '../../store/types/showApiTypes'
 import ErrorWhileLoading from '../errors/ErrorWhileLoading'
-import MoviePosterImage from '../MoviePosterImage'
-import './MovieDetails.scss'
+import ShowPosterImage from '../ShowPosterImage'
+import './ShowDetails.scss'
 import { removeTags } from '../../functions/functions'
 import ContentIsLoading from '../loading/ContentIsLoading'
 import StarIcon from '../icons/StarIcon'
 import CancelIcon from '../icons/CancelIcon'
-import MovieGenre from '../tools/MovieGenre'
+import ShowGenre from '../tools/ShowGenre'
 import { animated, useSpring } from 'react-spring'
 
-const MovieDetails: FC = () => {
+const ShowDetails: FC = () => {
   const navigate = useNavigate()
   const { ID } = useParams()
 
-  const movieList = useAppSelector(({ searchedMovies }) => searchedMovies.movieList) as SearchMovieList[]
+  const showList = useAppSelector(({ searchedShow }) => searchedShow.showList) as SearchShowList[]
 
-  const [correctShow, setCorrectShow] = useState<MovieListType | undefined>(undefined)
-  const [movieStars, setMovieStars] = useState<number | undefined>(0)
+  const [correctShow, setCorrectShow] = useState<ShowListType | undefined>(undefined)
+  const [showStars, setShowStars] = useState<number | undefined>(0)
 
-  const getcorrectShowToDisplay = (): SearchMovieList | undefined => {
-    const result = movieList.find(({ show }) => String(show.id) === String(ID))
+  const getcorrectShowToDisplay = (): SearchShowList | undefined => {
+    const result = showList.find(({ show }) => String(show.id) === String(ID))
     if (result) {
       return result
     }
@@ -32,10 +32,10 @@ const MovieDetails: FC = () => {
 
   useEffect(() => {
     setCorrectShow(getcorrectShowToDisplay()?.show)
-    setMovieStars(getcorrectShowToDisplay()?.score)
+    setShowStars(getcorrectShowToDisplay()?.score)
   }, [getcorrectShowToDisplay])
 
-  const animatedMovie = useSpring({
+  const animatedShow = useSpring({
     from: { opacity: 0 },
     enter: { opacity: 0 },
     to: { opacity: 1 },
@@ -56,14 +56,14 @@ const MovieDetails: FC = () => {
 
   return (
     <>
-      {(correctShow && movieStars) ? (
+      {(correctShow && showStars) ? (
         <animated.div
-          style={animatedMovie}
-          className='movies-details-container'>
-          <div className="movies-details-wrapper">
+          style={animatedShow}
+          className='show-details-container'>
+          <div className="show-details-wrapper">
 
-            <div className="movie-poster-large">
-              <MoviePosterImage
+            <div className="show-poster-large">
+              <ShowPosterImage
                 showList={false}
                 imageSize={
                   correctShow?.image.original
@@ -73,7 +73,7 @@ const MovieDetails: FC = () => {
               />
             </div>
 
-            <div className="movie-details">
+            <div className="show-details">
               <button
                 className='toggle-search-result-style go-back-button close-button'
                 onClick={() => navigate("/")}
@@ -82,40 +82,40 @@ const MovieDetails: FC = () => {
 
               </button>
 
-              <h1 className='movie-header'>
+              <h1 className='show-header'>
                 {correctShow.name}
               </h1>
 
               <span className="stars">
-                <StarIcon /> {convertRating(movieStars)}
+                <StarIcon /> {convertRating(showStars)}
               </span>
 
-              <span className='light-grey-text movie-status'>
+              <span className='light-grey-text show-status'>
                 Status: <b>{correctShow.status}</b>
               </span>
 
-              <span className='movie-details'>
+              <span className='show-details'>
                 {correctShow.summary && removeTags(correctShow.summary)}
               </span>
 
-              <p className='light-grey-text movie-premier'>
+              <p className='light-grey-text show-premier'>
                 Premiered: <b>{correctShow.premiered}</b>
               </p>
 
               {correctShow.language && (
-                <span className='light-grey-text movie-premier'>
+                <span className='light-grey-text show-premier'>
                   Premiered: <b>{correctShow.language}</b>
                 </span>
               )}
 
-              <div className="movie-genres">
+              <div className="show-genres">
                 {correctShow.genres.length > 0 && correctShow.genres.map((genre) => (
-                  <MovieGenre key={genre} genre={genre} />
+                  <ShowGenre key={genre} genre={genre} />
                 ))}
               </div>
 
               <button
-                className='toggle-search-result-style go-back-button movie-details-go-back-button'
+                className='toggle-search-result-style go-back-button show-details-go-back-button'
                 onClick={() => navigate("/")}
               >
                 Back to search
@@ -131,4 +131,4 @@ const MovieDetails: FC = () => {
   )
 }
 
-export default MovieDetails
+export default ShowDetails

@@ -1,23 +1,23 @@
 import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../store/redux/hooks";
-import { useGetMovieListQuery } from '../../store/services/movies';
-import { searchResults } from '../../store/slices/searchMovieSlice';
+import { useGetShowListQuery } from '../../store/services/show';
+import { searchResults } from '../../store/slices/searchShowSlice';
 import ErrorWhileLoading from "../errors/ErrorWhileLoading";
 import ContentIsLoading from "../loading/ContentIsLoading";
 import DisplayInformation from "../tools/DisplayInformation";
 import Header from "../header/Header";
-import Movie from "./Movie";
-import './moviesList.scss'
+import Show from "./Show";
+import './showList.scss'
 
-const Home = () => {
-  const movieListAvailable = useAppSelector(({ searchedMovies }) => searchedMovies.movieList)
-  const searchInput = useAppSelector(({ searchedMovies }) => searchedMovies.searchInput)
-  const showGrid = useAppSelector(({ searchedMovies }) => searchedMovies.showGrid)
+const ShowList = () => {
+  const showListAvailable = useAppSelector(({ searchedShow }) => searchedShow.showList)
+  const searchInput = useAppSelector(({ searchedShow }) => searchedShow.searchInput)
+  const showGrid = useAppSelector(({ searchedShow }) => searchedShow.showGrid)
   const dispatch = useAppDispatch()
 
   const {
     data, error, isLoading, isError,
-  } = useGetMovieListQuery(searchInput);
+  } = useGetShowListQuery(searchInput);
 
   useEffect(() => {
     dispatch(searchResults(data))
@@ -29,23 +29,23 @@ const Home = () => {
     );
   }
 
-  if (isLoading || !movieListAvailable) {
+  if (isLoading || !showListAvailable) {
     return (
       <ContentIsLoading />
     );
   }
 
   return (
-    <div className="movie-section">
+    <div className="show-section">
       <Header />
 
-      {movieListAvailable.length > 0 && <DisplayInformation />}
-      <div className={`movies-container ${!showGrid && 'list-show'}`}>
-        {movieListAvailable.map(({ show: {
+      {showListAvailable.length > 0 && <DisplayInformation />}
+      <div className={`show-container ${!showGrid && 'list-show'}`}>
+        {showListAvailable.map(({ show: {
           id, name, image, genres, summary
         } }) => {
           return (
-            <Movie
+            <Show
               key={id}
               id={id}
               title={name}
@@ -60,4 +60,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default ShowList

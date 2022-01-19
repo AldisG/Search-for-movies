@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import MovieList from './components/movies/MovieList';
-import MovieDetails from './components/movies/MovieDetails';
+import ShowList from './components/show/ShowList';
+import ShowDetails from './components/show/ShowDetails';
 import PageNotFound from './pages/PageNotFound';
 
 import './App.scss';
@@ -11,8 +11,8 @@ const App = () => {
     <div className="App">
       <div className="pages-container">
         <Routes>
-          <Route path="/" element={<MovieList />} />
-          <Route path="/movie/:ID" element={<MovieDetails />} />
+          <Route path="/" element={<ShowList />} />
+          <Route path="/show/:ID" element={<ShowDetails />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>

@@ -8,13 +8,13 @@ type Props = {
   children: React.ReactNode
 }
 
-const LinkToMovie: FC<Props> = ({ text, linkId, classNameProp, children }) => {
+const LinkToShow: FC<Props> = ({ text, linkId, classNameProp, children }) => {
   return (
-    <Link className={classNameProp} to={`/movie/${linkId}`}>
+    <Link className={classNameProp} to={`/show/${linkId}`}>
       {children}
       {text}
     </Link>
   )
 }
 
-export default LinkToMovie
+export default LinkToShow

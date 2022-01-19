@@ -5,7 +5,7 @@ $maxSize: 400px;
   color: $lightGrey;
 }
 
-.movies-details-container{
+.show-details-container{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -13,7 +13,7 @@ $maxSize: 400px;
   padding: 20px;
 }
 
-.movies-details-wrapper{
+.show-details-wrapper{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
   flex-wrap: wrap;
@@ -25,20 +25,20 @@ $maxSize: 400px;
   max-width: max-content;
 }
 
-.movie-poster-large{
+.show-poster-large{
   display: grid;
   justify-content: center;
   max-width: $maxSize;
 }
 
-.movie-details{
+.show-details{
   display: grid;
   gap: 10px;
   min-width: 50px;
 }
 
-.movie-header,
-.movie-details{
+.show-header,
+.show-details{
   color: $white;
 }
 
@@ -50,16 +50,16 @@ $maxSize: 400px;
   gap: 10px;
 }
 
-.movie-details{
+.show-details{
   font-size: 1.2rem;
 }
 
-.movie-premier,
-.movie-status{
+.show-premier,
+.show-status{
   font-size: 1rem;
 }
 
-.movie-details-go-back-button{
+.show-details-go-back-button{
   justify-self: flex-end;
   align-self: flex-end;
 }

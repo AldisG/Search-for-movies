@@ -1,6 +1,6 @@
 @import '../../App.scss';
 
-.movie-section{
+.show-section{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +8,7 @@
   height: max-content;
 }
 
-.movies-container{
+.show-container{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;

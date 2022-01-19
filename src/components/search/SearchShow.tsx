@@ -1,11 +1,11 @@
 import { FormEvent, useState, useEffect, useRef } from "react"
 import { useAppDispatch } from "../../store/redux/hooks"
-import { searchInput } from "../../store/slices/searchMovieSlice"
+import { searchInput } from "../../store/slices/searchShowSlice"
 import SearchIcon from "../icons/SearchIcon"
 import NavigateBtn from "../tools/buttons/NavigateBtn"
-import './searchMovies.scss'
+import './searchShow.scss'
 
-const SearchMovies = () => {
+const SearchShow = () => {
   const dispatch = useAppDispatch()
   const [userInput, setUserInput] = useState('')
 
@@ -21,7 +21,7 @@ const SearchMovies = () => {
 
   return (
     <form
-      className="search-movies-container"
+      className="search-show-container"
       onSubmit={(e) => handleSubmit(e)}
     >
 
@@ -31,7 +31,7 @@ const SearchMovies = () => {
         ref={focusOnInput}
         className="search-input"
         type="text"
-        placeholder="Search for a movie"
+        placeholder="Search for a show"
       />
 
       <NavigateBtn>
@@ -41,4 +41,4 @@ const SearchMovies = () => {
   )
 }
 
-export default SearchMovies
+export default SearchShow

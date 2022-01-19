@@ -2,11 +2,11 @@ import { useAppSelector } from "../../store/redux/hooks";
 
 const ItemsFoundCounter = () => {
 
-  const amountOfMoviesFound = useAppSelector(({ searchedMovies }) => searchedMovies.movieList.length)
+  const amountOfShowFound = useAppSelector(({ searchedShow }) => searchedShow.showList.length)
 
   return (
     <div>
-      {amountOfMoviesFound ? amountOfMoviesFound : ''}
+      {amountOfShowFound ? amountOfShowFound : ''}
     </div>
   )
 }

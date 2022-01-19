@@ -1,19 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { SearchMovieList } from '../types/movieApiTypes'
+import { SearchShowList } from '../types/showApiTypes'
 
 const initialState = {
-  movieList: [] as SearchMovieList[],
+  showList: [] as SearchShowList[],
   searchInput: '',
   showGrid: true,
-  clickedSearchShow: {} as SearchMovieList
+  clickedSearchShow: {} as SearchShowList
 };
 
-const moviesSlice = createSlice({
-  name: 'moviesList',
+const showSlice = createSlice({
+  name: 'showList',
   initialState,
   reducers: {
     searchResults: (state, { payload }) => {
-      state.movieList = payload
+      state.showList = payload
     },
     searchInput: (state, { payload }) => {
       state.searchInput = payload
@@ -28,5 +28,5 @@ export const {
   searchResults,
   searchInput,
   chooseGridOrListOfSearches,
-} = moviesSlice.actions
-export default moviesSlice.reducer;
+} = showSlice.actions
+export default showSlice.reducer;

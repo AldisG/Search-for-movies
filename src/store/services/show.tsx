@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const moviesAPI = createApi({
-  reducerPath: 'movies',
+export const showAPI = createApi({
+  reducerPath: 'show',
   baseQuery: fetchBaseQuery({
     // link to the base API is located in package.json => "proxy"
     // In case of CORS error
@@ -9,10 +9,10 @@ export const moviesAPI = createApi({
   }),
 
   endpoints: (builder) => ({
-    getMovieList: builder.query({
+    getShowList: builder.query({
       query: (searchFor: string) => `search/shows?q=${searchFor}` as string
     }),
-    getAnyMoviesList: builder.query({
+    getAnyShowList: builder.query({
       query: (pageOfInterest: string) => `shows?page=${pageOfInterest}`
     }),
     fillerImage: builder.query({
@@ -21,6 +21,6 @@ export const moviesAPI = createApi({
   })
 })
 
-export const { reducer } = moviesAPI
-export const { useGetMovieListQuery, useGetAnyMoviesListQuery, useFillerImageQuery } = moviesAPI
-export default moviesAPI
+export const { reducer } = showAPI
+export const { useGetShowListQuery, useGetAnyShowListQuery, useFillerImageQuery } = showAPI
+export default showAPI

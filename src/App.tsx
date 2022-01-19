@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import ShowList from './components/show/ShowList';
-import ShowDetails from './components/show/ShowDetails';
+import ShowList from './pages/show/ShowList';
+import ShowDetails from './pages/show/ShowDetails';
 import PageNotFound from './pages/PageNotFound';
 
 import './App.scss';

@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../store/redux/hooks";
 import { useGetShowListQuery } from '../../store/services/show';
 import { searchResults } from '../../store/slices/searchShowSlice';
-import ErrorWhileLoading from "../errors/ErrorWhileLoading";
-import ContentIsLoading from "../loading/ContentIsLoading";
-import DisplayInformation from "../tools/DisplayInformation";
-import Header from "../header/Header";
+import ErrorWhileLoading from "../../components/errors/ErrorWhileLoading";
+import ContentIsLoading from "../../components/loading/ContentIsLoading";
+import DisplayInformation from "../../components/tools/DisplayInformation";
+import Header from "../../components/header/Header";
 import Show from "./Show";
 import './showList.scss'
 

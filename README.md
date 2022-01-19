@@ -1,4 +1,16 @@
+
+
 # Getting Started with Create React App
+## File arrangement:
+* The entry point for all quiz related components is App.tsx
+* The Shows  - search, results, icons, utc - are separated into different components
+* Project could be improved with more time, adding more animations, some minor optimisations, etc.
+* "Store" folder contains all Redux (slices, store, custom hooks for TS) and Api calls
+* Project contains 3 main pages - ShowList, ShowDetails and PageNotFound, that can be found in "pages" folder
+* Components folder contains every other JSX file (alongside necessary scss files), like error, header, loading, utc.
+* API base url is located in package.json file - in "propxy" property, in case there are CORS issues.
+* Endpoints for API can easily be adjusted, by adding new endpoint, in store->services->show file.
+* Project contains libraries and tools like ReduxToolkit, Route, useApi, StyledComponents, ReactSpring.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

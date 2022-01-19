@@ -16,9 +16,11 @@ $red: #c74052;
   text-decoration: none;
   font-family: 'Roboto Condensed', sans-serif;
 }
+
 button{
   user-select: none;
 }
+
 .App {
   display: flex;
   flex-direction: column;
@@ -27,6 +29,7 @@ button{
   background-color: $black;
   color: $white;
 }
+
 .navigation-link{
   user-select: none;
   color: $lightGrey;

@@ -1,35 +1,34 @@
 import { FC } from 'react'
+import { animated, useSpring } from 'react-spring'
 import MovieGenre from '../tools/MovieGenre'
 import { useAppSelector } from '../../store/redux/hooks'
 import { determineImageSize, shortenSummaryParagraph } from '../../functions/functions'
 import NoPhotoFound from '../errors/NoPhotoFound'
 import MoviePosterImage from '../MoviePosterImage'
 import LinkToMovie from './LinkToMovie'
+import { MovieProps } from '../../store/types/movieApiTypes'
 import './movie.scss'
-import { Link } from 'react-router-dom'
 
-type Props = {
-  id: number,
-  title: string,
-  imgLink: {
-    medium: string,
-    original: string,
-  },
-  genres: string[],
-  summary: string
-}
-
-const Movie: FC<Props> = ({
+const Movie: FC<MovieProps> = ({
   id, title, imgLink, genres, summary
 }) => {
   const showGrid = useAppSelector(({ searchedMovies }) => searchedMovies.showGrid)
+
+  const animatedMovie = useSpring({
+    from: { opacity: 0 },
+    enter: { opacity: 0 },
+    to: { opacity: 1 },
+    config: {
+      duration: 1000
+    }
+  })
 
   const handleDetermineImageSize = (showMediumImg: boolean) => {
     return determineImageSize(showMediumImg, imgLink?.medium, imgLink?.original)
   }
 
   return (
-    <div className="wrapper">
+    <animated.div className="wrapper" style={animatedMovie}>
       <div className={`movie-item ${!showGrid && 'list'}`}>
 
         {imgLink && (
@@ -64,14 +63,14 @@ const Movie: FC<Props> = ({
           <LinkToMovie classNameProp="navigation-link" text="See more" linkId={id}>{''}</LinkToMovie>
 
           <div className="movie-genres">
-            {genres.length > 0 && genres.map((genre) => (
+            {genres.map((genre) => (
               <MovieGenre key={genre} genre={genre} />
             ))}
           </div>
 
         </div>
       </div>
-    </div>
+    </animated.div>
   )
 }
 

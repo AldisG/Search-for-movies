@@ -13,6 +13,7 @@
     background-color: $accentColor;
   } 
 }
+
 .navigation-link{
   border-radius: 8px;
   border: none;
@@ -22,15 +23,19 @@
     text-decoration: none;
   }
 }
+
 .go-back-button{
   width: max-content;
   &:hover {
     background-color: $accentColor;
   }
 }
+
 .close-button{
   display: flex; 
   position: absolute;
+  width: 30px;
+  height: 30px;
   top: 20px;
   right: 20px;
   background-color: $whiteTransparentBrighter;

@@ -23,10 +23,22 @@ export type MovieListType = {
   summary: string,
 }
 
+export type MovieProps = {
+  id: number,
+  title: string,
+  imgLink: {
+    medium: string,
+    original: string,
+  },
+  genres: string[],
+  summary: string
+}
+
 export type SearchMovieList = {
   score: number,
   show: MovieListType
 }
+
 export type FillerImage = {
   resolutions: {
     medium: {

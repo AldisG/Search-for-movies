@@ -13,15 +13,14 @@ const Home = () => {
   const movieListAvailable = useAppSelector(({ searchedMovies }) => searchedMovies.movieList)
   const searchInput = useAppSelector(({ searchedMovies }) => searchedMovies.searchInput)
   const showGrid = useAppSelector(({ searchedMovies }) => searchedMovies.showGrid)
-  const dispatch = useAppDispatch() // search form
+  const dispatch = useAppDispatch()
+
   const {
     data, error, isLoading, isError,
   } = useGetMovieListQuery(searchInput);
 
   useEffect(() => {
-    dispatch(searchResults(data)) // search form
-    // dispatch(moviesAPI.endpoints.getAnyMoviesList.initiate('1'))
-    // return () => apiCall.unsubscribe
+    dispatch(searchResults(data))
   }, [data, dispatch])
 
   if (error || isError) {

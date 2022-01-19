@@ -2,6 +2,7 @@ export const removeTags = (value: string): string => {
   const regex = /(<([^>]+)>)/ig;
   return value.replace(regex, '')
 }
+
 export const shortenSummaryParagraph = (text: string, showGrid: boolean) => {
   if (text) {
     removeTags(text)

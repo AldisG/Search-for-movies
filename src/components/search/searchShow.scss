@@ -1,44 +1,55 @@
-  @import '../../App.scss';
-  
-  .search-show-container{
-    display: flex;
-    gap: 10px;
-    position: relative;
+  @import "../../App.scss";
+
+.search-show-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+  width: 100%;
+}
+.search-show-label {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+}
+
+.search-input,
+.search-button {
+  padding: 10px 15px;
+  border: none;
+  background-color: $white;
+  border-radius: 300px;
+}
+
+.search-input {
+  width: 100%;
+  font-size: 1.4rem;
+  outline: 1px solid $blackText;
+  border-radius: 300px;
+  &:focus,
+  &:active {
+    outline: 2px solid $accentColor;
   }
-  
-  .search-input,
-  .search-button{
-    padding: 10px 15px;
-    border: none; 
-    background-color: $white;
-    border-radius: 300px;
+  &::placeholder {
+    color: $lightGrey;
   }
-  .search-input{
-    width: 400px;
-    font-size: 1.4rem;
-    outline: 1px solid $blackText;
-    border-radius: 300px;
-    &:focus, &:active {
-      outline: 2px solid $accentColor;
-    }
-    &::placeholder{
-      color: $lightGrey;
-    }
+  position: relative;
+}
+
+.search-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background-color: $white;
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.2s;
+  &:hover {
+    background-color: $accentColor;
   }
-  .search-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    background-color: $white;
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: background-color .2s;
-    &:hover {
-      background-color: $accentColor;
-    } 
-  }
+}

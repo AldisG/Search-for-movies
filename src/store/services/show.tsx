@@ -5,7 +5,7 @@ export const showAPI = createApi({
   baseQuery: fetchBaseQuery({
     // link to the base API is located in package.json => "proxy"
     // In case of CORS error
-    baseUrl: '/'
+    baseUrl: 'https://api.tvmaze.com/'
   }),
 
   endpoints: (builder) => ({

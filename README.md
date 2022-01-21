@@ -1,4 +1,4 @@
-
+![](https://github.com/AldisG/twsowgif/blob/main/TV-show-search.gif)
 
 # Getting Started with Create React App
 ## File arrangement:
